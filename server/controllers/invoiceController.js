@@ -17,6 +17,17 @@ invoiceController.createInvoice = async (req, res) => {
   }
 };
 
+// Get All Invoices
+invoiceController.getAllInvoices = async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM invoices");
+    return res.json(result.rows);
+  } catch (err) {
+    console.error("Get invoices error:", err);
+    return res.status(500).json({ error: "Server error" });
+  }
+};
+
 // Update Invoice
 invoiceController.updateInvoice = async (req, res) => {
   const { id } = req.params;

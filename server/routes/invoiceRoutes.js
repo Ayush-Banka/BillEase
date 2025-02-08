@@ -3,16 +3,16 @@ const router = express.Router();
 const invoiceController = require("../controllers/invoiceController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
-// Create Invoice
+// Create an invoice
 router.post("/", authMiddleware, invoiceController.createInvoice);
 
-// Get All Invoices
+// Get all invoices
 router.get("/", authMiddleware, invoiceController.getAllInvoices);
 
-// Update Invoice
+// Update an invoice
 router.put("/:id", authMiddleware, invoiceController.updateInvoice);
 
-// Delete Invoice
+// Delete an invoice
 router.delete("/:id", authMiddleware, invoiceController.deleteInvoice);
 
 module.exports = router;
